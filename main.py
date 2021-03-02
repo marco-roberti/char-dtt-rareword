@@ -56,7 +56,7 @@ def main(args):
 if __name__ == '__main__':
     parser = ArgumentParser(description='Utility script to (load and) train a model.',
                             formatter_class=ArgumentDefaultsHelpFormatter)
-    parser.add_argument('seed')
+    parser.add_argument('seed', type=int)
     parser.add_argument('-d', '--dataset', type=str, default='E2E', choices=datasets.keys(), help=' ')
     parser.add_argument('-m', '--model', type=str, default='EDA_C', choices=models.keys(), help=' ')
 
