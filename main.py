@@ -6,6 +6,7 @@ from torch.nn import NLLLoss
 from torch.optim import Adam
 from torch.optim.lr_scheduler import CosineAnnealingLR
 from torch.utils.data import DataLoader
+import numpy as np
 
 from datasets.base import DatasetType
 from datasets.e2e.e2e import E2E
@@ -29,6 +30,9 @@ models = {
 
 
 def main(args):
+    torch.manual_seed(args.seed)
+    np.random.seed(args.seed)
+
     dataset = datasets[args.dataset](DatasetType.TRAIN)
     data_loader = DataLoader(dataset, batch_size=args.batch_size, collate_fn=dataset.collate_fn, shuffle=True)
 
@@ -44,14 +48,15 @@ def main(args):
     scheduler = CosineAnnealingLR(optimizer, args.cosine_tmax, args.cosine_etamin) if args.cosine_tmax else None
     criterion = NLLLoss()
 
-    losses = train(data_loader, model, optimizer, scheduler, criterion, dataset.vocabulary_size(), args.n_epochs, args.epoch,
-                   clip_norm=args.clip_norm)
+    losses = train(data_loader, model, optimizer, scheduler, criterion, dataset.vocabulary_size(), args.n_epochs,
+                   args.epoch, clip_norm=args.clip_norm)
     print(losses)
 
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Utility script to (load and) train a model.',
                             formatter_class=ArgumentDefaultsHelpFormatter)
+    parser.add_argument('seed')
     parser.add_argument('-d', '--dataset', type=str, default='E2E', choices=datasets.keys(), help=' ')
     parser.add_argument('-m', '--model', type=str, default='EDA_C', choices=models.keys(), help=' ')
 
