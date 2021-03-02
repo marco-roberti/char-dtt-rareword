@@ -146,7 +146,8 @@ def optimization_step(x, y, model, optimizer, scheduler, criterion, num_classes,
     if clip_norm:
         clip_grad_norm_(model.parameters(), clip_norm)  # Gradient clipping
     optimizer.step(None)
-    scheduler.step()
+    if scheduler:
+        scheduler.step()
     return loss.item() / y.size(1), y_  # Regularizes loss according to sequence length
 
 
