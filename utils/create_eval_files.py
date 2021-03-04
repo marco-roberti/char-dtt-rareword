@@ -7,6 +7,7 @@ from tqdm import tqdm
 
 from datasets.base import DatasetType
 from main import datasets, models
+from models.defaults import default_attention, default_embedding, default_gru
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -43,6 +44,17 @@ def main(args):
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Create evaluation files for a dataset using a trained model')
+    parser.add_argument('seed', type=int)
     parser.add_argument('weights', type=str, help='The state_dict of a trained model')
     parser.add_argument('set', choices=['dev', 'test'], help='Which set to use, dev or test.')
+
+    parser.add_argument('-d', '--dataset', type=str, default='E2E', choices=datasets.keys(), help=' ')
+    parser.add_argument('-m', '--model', type=str, default='EDA_C', choices=models.keys(), help=' ')
+
+    # Model parameters
+    parser.add_argument('-a', '--attention_size', type=int, default=default_attention['size'], help=' ')
+    parser.add_argument('-emb', '--embedding_size', type=int, default=default_embedding['size'], help=' ')
+    parser.add_argument('-s', '--hidden_size', type=int, default=default_gru['hidden_size'], help=' ')
+    parser.add_argument('-l', '--layers', type=int, default=default_gru['num_layers'], help=' ')
+
     main(parser.parse_args())
