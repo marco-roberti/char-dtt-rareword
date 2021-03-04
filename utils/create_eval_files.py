@@ -18,7 +18,7 @@ def main(args):
     np.random.seed(args.seed)
 
     which_set = {'dev': DatasetType.DEV, 'test': DatasetType.TEST}[args.set]
-    dataset = datasets['args.dataset'](which_set)
+    dataset = datasets[args.dataset](which_set)
     dataset.sort()
     loader = DataLoader(dataset, collate_fn=dataset.collate_fn)
 
