@@ -1,5 +1,5 @@
 # coding=utf-8
-from argparse import ArgumentParser
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 
 import torch
 from torch.utils.data import DataLoader
@@ -43,7 +43,8 @@ def main(args):
 
 
 if __name__ == '__main__':
-    parser = ArgumentParser(description='Create evaluation files for a dataset using a trained model')
+    parser = ArgumentParser(description='Create evaluation files for a dataset using a trained model',
+                            formatter_class=ArgumentDefaultsHelpFormatter)
     parser.add_argument('seed', type=int)
     parser.add_argument('weights', type=str, help='The state_dict of a trained model')
     parser.add_argument('set', choices=['dev', 'test'], help='Which set to use, dev or test.')
