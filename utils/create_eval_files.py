@@ -1,6 +1,7 @@
 # coding=utf-8
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 
+import numpy as np
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
@@ -13,12 +14,16 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 def main(args):
+    torch.manual_seed(args.seed)
+    np.random.seed(args.seed)
+
     which_set = {'dev': DatasetType.DEV, 'test': DatasetType.TEST}[args.set]
     dataset = datasets['args.dataset'](which_set)
     dataset.sort()
     loader = DataLoader(dataset, collate_fn=dataset.collate_fn)
 
-    model = models[args.model](dataset.vocabulary_size(), dataset.sos_token, dataset.eos_token, dataset.pad_token).to(device)
+    model = models[args.model](
+        dataset.vocabulary_size(), dataset.sos_token, dataset.eos_token, dataset.pad_token).to(device)
     model.load_state_dict(torch.load(args.weights, map_location='cpu'))
     model.eval()
 
