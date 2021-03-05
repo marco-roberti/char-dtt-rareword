@@ -23,7 +23,9 @@ def main(args):
     loader = DataLoader(dataset, collate_fn=dataset.collate_fn)
 
     model = models[args.model](
-        dataset.vocabulary_size(), dataset.sos_token, dataset.eos_token, dataset.pad_token).to(device)
+        dataset.vocabulary_size(), dataset.sos_token, dataset.eos_token, dataset.pad_token,
+        attention_size=args.attention_size, embedding_size=args.embedding_size,
+        hidden_size=args.hidden_size, num_layers=args.layers).to(device)
     model.load_state_dict(torch.load(args.weights, map_location='cpu'))
     model.eval()
 
