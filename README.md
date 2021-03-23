@@ -1,4 +1,4 @@
-# The Rare Word Issue in Natural Language Generation: a Character-Based Solution
+# Character-Based Data-to-Text Generation
 This repository contains the source code and the datasets used for the journal paper [_Rare Word Issue in Natural Language Generation: a Character-Based Solution_](https://www.mdpi.com/2227-9709/8/1/20/pdf) by [Giovanni Bonetta](https://www.linkedin.com/in/giovanni-bonetta-11276b105/), [Marco Roberti](http://www.di.unito.it/~roberti/), [Rossella Cancelliere](http://www.di.unito.it/~cancelli/), and [Patrick  Gallinari](https://www.lip6.fr/actualite/personnes-fiche.php?ident=P33).
 
 ## Step-by-step guide
@@ -62,15 +62,15 @@ Please use the following BibTeX snippet to cite our work:
 
 ```BibTeX
 @Article{informatics8010020,
-AUTHOR = {Bonetta, Giovanni and Roberti, Marco and Cancelliere, Rossella and Gallinari, Patrick},
-TITLE = {The Rare Word Issue in Natural Language Generation: A Character-Based Solution},
-JOURNAL = {Informatics},
-VOLUME = {8},
-YEAR = {2021},
-NUMBER = {1},
-ARTICLE-NUMBER = {20},
-URL = {https://www.mdpi.com/2227-9709/8/1/20},
-ISSN = {2227-9709},
-DOI = {10.3390/informatics8010020}
+    AUTHOR = {Bonetta, Giovanni and Roberti, Marco and Cancelliere, Rossella and Gallinari, Patrick},
+    TITLE = {The Rare Word Issue in Natural Language Generation: A Character-Based Solution},
+    JOURNAL = {Informatics},
+    VOLUME = {8},
+    YEAR = {2021},
+    NUMBER = {1},
+    ARTICLE-NUMBER = {20},
+    URL = {https://www.mdpi.com/2227-9709/8/1/20},
+    ISSN = {2227-9709},
+    DOI = {10.3390/informatics8010020}
 }
 ```
