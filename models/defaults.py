@@ -10,11 +10,11 @@ default_eda = {
 }
 
 default_embedding = {
-    'size': 16
+    'size': 32
 }
 
 default_gru = {
     'dropout':     0.2,
-    'hidden_size': 256,
-    'num_layers':  4
+    'hidden_size': 300,
+    'num_layers':  3
 }

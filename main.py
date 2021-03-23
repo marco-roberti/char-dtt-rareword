@@ -67,11 +67,11 @@ if __name__ == '__main__':
     parser.add_argument('-l', '--layers', type=int, default=default_gru['num_layers'], help=' ')
 
     # Training parameters
-    parser.add_argument('-etot', '--total_epochs', dest='n_epochs', default=20, type=int, help=' ')
-    parser.add_argument('-b', '--batch_size', default=16, type=int, help=' ')
+    parser.add_argument('-etot', '--total_epochs', dest='n_epochs', default=32, type=int, help=' ')
+    parser.add_argument('-b', '--batch_size', default=32, type=int, help=' ')
     parser.add_argument('-lr', '--learning_rate', type=float, default=1e-3, help=' ')
     parser.add_argument('--clip_norm', type=float, default=5, help=' ')
-    parser.add_argument('--cosine_tmax', type=int, default=0, help='T_max argument for CosineAnnealingLR')
+    parser.add_argument('--cosine_tmax', type=int, default=50000, help='T_max argument for CosineAnnealingLR')
     parser.add_argument('--cosine_etamin', type=int, default=0, help='eta_min argument for CosineAnnealingLR')
 
     # Save/resume training
