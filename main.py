@@ -13,7 +13,7 @@ from datasets.e2e.e2e import E2E
 from datasets.e2e.e2e_newyork import E2ENY
 from models.defaults import default_gru, default_embedding, default_attention
 from models.eda import EDA
-from models.eda_c import EDA_C
+from models.edacs import EDACS
 from utils.train import train
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -25,7 +25,7 @@ datasets = {
 
 models = {
     'EDA': EDA,
-    'EDA_C': EDA_C
+    'EDACS': EDACS
 }
 
 
@@ -58,7 +58,7 @@ if __name__ == '__main__':
                             formatter_class=ArgumentDefaultsHelpFormatter)
     parser.add_argument('seed', type=int)
     parser.add_argument('-d', '--dataset', type=str, default='E2E', choices=datasets.keys(), help=' ')
-    parser.add_argument('-m', '--model', type=str, default='EDA_C', choices=models.keys(), help=' ')
+    parser.add_argument('-m', '--model', type=str, default='EDACS', choices=models.keys(), help=' ')
 
     # Model parameters
     parser.add_argument('-a', '--attention_size', type=int, default=default_attention['size'], help=' ')

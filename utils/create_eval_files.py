@@ -57,7 +57,7 @@ if __name__ == '__main__':
     parser.add_argument('set', choices=['dev', 'test'], help='Which set to use, dev or test.')
 
     parser.add_argument('-d', '--dataset', type=str, default='E2E', choices=datasets.keys(), help=' ')
-    parser.add_argument('-m', '--model', type=str, default='EDA_C', choices=models.keys(), help=' ')
+    parser.add_argument('-m', '--model', type=str, default='EDACS', choices=models.keys(), help=' ')
 
     # Model parameters
     parser.add_argument('-a', '--attention_size', type=int, default=default_attention['size'], help=' ')

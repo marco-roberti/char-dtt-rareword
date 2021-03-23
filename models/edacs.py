@@ -11,7 +11,7 @@ from models.encoder import Encoder
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
-class EDA_C(Module):
+class EDACS(Module):
     def __init__(self, vocabulary_size, sos_token, eos_token, pad_token,
                  max_string_length=default_eda['string_max_length'], attention_size=default_attention['size'],
                  embedding_size=default_embedding['size'], hidden_size=default_gru['hidden_size'],
