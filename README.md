@@ -3,7 +3,7 @@ This repository contains the source code and the datasets used for the journal p
 
 ## Step-by-step guide
 ### Requirements
-Prior to use the code, install the following packages. Versions used in the experiments are reported; the code should work in more recent versions too.
+Prior to use the code, install the following packages. Versions used in the experiments are reported; the code should work with more recent versions too.
 * Python (3.7.7)
 * tqdm (1.19.2)
 * NumPy (4.56.0)
@@ -55,7 +55,7 @@ You can choose the dataset and the architecture via argparse. Different architec
 ```
 
 ### Evaluation
-We took advantage of the [E2E NLG Challenge Evaluation metrics](https://github.com/tuetschek/e2e-metrics). Please refer to their repository for detailed instructions.s
+We took advantage of the [E2E NLG Challenge Evaluation metrics](https://github.com/tuetschek/e2e-metrics). Please refer to their repository for detailed instructions.
 
 ## Citations
 Please use the following BibTeX snippet to cite our work:
